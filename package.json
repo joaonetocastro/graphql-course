@@ -5,20 +5,22 @@
   "license": "MIT",
   "scripts": {
     "d": "node -r sucrase/register src/index.js",
-    "dev": "nodemon -r sucrase/register src/index.js"
+    "dev": "nodemon -r sucrase/register src/index.js",
+    "server": "json-server --watch db.json"
   },
   "dependencies": {
     "apollo-server": "^3.11.1",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "json-server": "^0.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
-    "sucrase": "^3.29.0",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.31.11"
+    "eslint-plugin-react": "^7.31.11",
+    "nodemon": "^2.0.20",
+    "sucrase": "^3.29.0"
   }
 }
