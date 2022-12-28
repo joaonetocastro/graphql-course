@@ -14,5 +14,8 @@ export const postResolvers = {
     Query: {
         post,
         posts
+    },
+    Post: {
+        unixTimestamp: ({createdAt}) => Math.floor(new Date(createdAt).getTime() / 1000)
     }
 }

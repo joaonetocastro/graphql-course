@@ -12,6 +12,6 @@ export const postTypeDefs = gql`
         body: String!
         indexRef: Int!
         createdAt: String!
-        # user: User
+        unixTimestamp: String!        # user: User
     }
 `
