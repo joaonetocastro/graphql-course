@@ -1,8 +1,6 @@
-const post = async (_obj, {id}, {getPosts}) => {
-    const response = await getPosts(`/${id}`)
-    const result = await response.json()
-
-    return result
+const post = async (_obj, {id}, {dataSources}) => {
+    const response = await dataSources.postsAPI.getPost(id)
+    return response
 }
 
 const posts = async (_obj, {input}, {getPosts}) => {

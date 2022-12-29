@@ -9,6 +9,7 @@
     "server": "json-server --watch db.json"
   },
   "dependencies": {
+    "apollo-datasource-rest": "^3.7.0",
     "apollo-server": "^3.11.1",
     "axios": "^1.2.1",
     "dataloader": "^2.1.0",
