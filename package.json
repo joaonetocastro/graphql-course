@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "d": "node -r sucrase/register src/index.js",
-    "dev": "nodemon -r sucrase/register src/index.js",
+    "dev": "nodemon -r dotenv/config -r sucrase/register src/index.js",
     "server": "json-server --watch db.json"
   },
   "dependencies": {
     "apollo-server": "^3.11.1",
     "axios": "^1.2.1",
     "dataloader": "^2.1.0",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "json-server": "^0.17.1",
     "node-fetch": "^2.3.0"
