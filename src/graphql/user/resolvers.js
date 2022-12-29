@@ -11,9 +11,16 @@ const users = async (_obj, {input}, {getUsers}) => {
     return response.json()
 }
 
+const posts = async ({id}, _, {postDataLoader}) => {
+    return postDataLoader.load(id)
+}
+
 export const userResolvers = {
     Query: {
         user,
         users
+    },
+    User: {
+        posts
     }
 }
