@@ -3,11 +3,10 @@ const post = async (_obj, {id}, {dataSources}) => {
     return response
 }
 
-const posts = async (_obj, {input}, {getPosts}) => {
+const posts = async (_obj, {input}, {dataSources}) => {
     const apiFiltersInput = new URLSearchParams(input)
-    const response = await getPosts(`/?${apiFiltersInput.toString()}`)
-    
-    return response.json()
+    const response = await dataSources.postsAPI.getPosts(apiFiltersInput)
+    return response
 }
 
 const user = async ({userId}, _, {userDataLoader}) => {
