@@ -1,11 +1,15 @@
 import fetch from 'node-fetch'
+import { makeGetPosts } from './graphql/post/utils'
 import { makeUserDataLoader } from './graphql/user/dataloaders'
-import {getUsers} from './graphql/user/utils'
+import {makeGetUsers} from './graphql/user/utils'
+
+const getUsers = makeGetUsers(fetch)
+const getPosts = makeGetPosts(fetch)
 
 export const context = () => {
     return {
-        userDataLoader: makeUserDataLoader(getUsers(fetch)),
-        getUsers: getUsers(fetch),
-        getPosts: (path='/') => fetch(`http://localhost:3000/posts${path}`),
+        userDataLoader: makeUserDataLoader(getUsers),
+        getUsers,
+        getPosts,
     }
 }

@@ -1,6 +1,3 @@
-import Dataloader from 'dataloader'
-import fetch from 'node-fetch'
-
 const post = async (_obj, {id}, {getPosts}) => {
     const response = await getPosts(`/${id}`)
     const result = await response.json()

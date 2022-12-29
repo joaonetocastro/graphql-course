@@ -1,0 +1,1 @@
+export const makeGetPosts = (fetch) =>  (path='/') => fetch(`${process.env.API_URL}/posts${path}`)
