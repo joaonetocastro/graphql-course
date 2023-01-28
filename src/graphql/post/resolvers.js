@@ -15,6 +15,10 @@ const createPost = async (_obj, {data}, {dataSources}) => {
     return dataSources.postsAPI.createPost(data)
 }
 
+const updatePost = async (_obj, {id, data}, {dataSources}) => {
+    return dataSources.postsAPI.updatePost(id, data)
+}
+
 // Field Resolvers
 const user = async ({userId}, _, {userDataLoader}) => {
     return userDataLoader.load(userId)
@@ -29,6 +33,7 @@ export const postResolvers = {
         user
     },
     Mutation: {
-        createPost
+        createPost,
+        updatePost
     }
 }

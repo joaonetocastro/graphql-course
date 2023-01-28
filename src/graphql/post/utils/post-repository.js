@@ -11,6 +11,17 @@ export const createPostFn = async (data, dataSource) => {
     return await dataSource.post('', {...postInfo})
 }
 
+export const updatePostFn = async (postId, postData, dataSource) => {
+    if(!postId) {
+        throw new ValidationError('Missing postId')
+    }
+
+    if(postData?.userId) {
+        await userExists(postData.userId, dataSource)
+    }
+    return await dataSource.patch(postId, {... postData})
+}
+
 const userExists = async (userId, dataSource) => {
     try {
         await dataSource.context.getUsers(`/${userId}`)
