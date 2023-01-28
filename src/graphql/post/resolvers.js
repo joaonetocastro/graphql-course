@@ -1,3 +1,4 @@
+// Query Resolvers
 const post = async (_obj, {id}, {dataSources}) => {
     const response = await dataSources.postsAPI.getPost(id)
     return response
@@ -9,11 +10,12 @@ const posts = async (_obj, {input}, {dataSources}) => {
     return response
 }
 
-const createPost = async (_obj, args, {dataSources}) => {
-    console.log(args)
-    return null
+// Mutation Resolvers
+const createPost = async (_obj, {data}, {dataSources}) => {
+    return dataSources.postsAPI.createPost(data)
 }
 
+// Field Resolvers
 const user = async ({userId}, _, {userDataLoader}) => {
     return userDataLoader.load(userId)
 }
