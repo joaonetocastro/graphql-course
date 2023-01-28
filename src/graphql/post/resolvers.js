@@ -9,6 +9,11 @@ const posts = async (_obj, {input}, {dataSources}) => {
     return response
 }
 
+const createPost = async (_obj, args, {dataSources}) => {
+    console.log(args)
+    return null
+}
+
 const user = async ({userId}, _, {userDataLoader}) => {
     return userDataLoader.load(userId)
 }
@@ -20,5 +25,8 @@ export const postResolvers = {
     },  
     Post: {
         user
+    },
+    Mutation: {
+        createPost
     }
 }
